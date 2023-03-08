@@ -20,3 +20,16 @@ Here's how you'd run that Docker image given the docker name. You can use enviro
  That URL is the Git repository from which the Config Server draws its configuration. It needs to be a Git repository. The default I've written in the code points to a Git repository on the local Desktop.  But, it could be anything. A Github URL. Gitlab. etc. etc. 
  
  
+## Sourcing the Configuration 
+
+The Git repository needs to have either `.properties` or `.yaml` files, named for the service, or just `application.properties` or `application.yaml`. 
+
+So, given a repository:
+
+```shell
+application.properties
+a.properties
+b.properties
+```
+
+Then, if a microservice identifying itself as `a` connects, it would get the properties from both `a.properties` and `application.properties`.
